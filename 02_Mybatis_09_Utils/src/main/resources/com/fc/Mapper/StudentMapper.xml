@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <!--首先，根标签：mapper，命名空间可以随便写，但是有一定的规范，后面说-->
+<mapper namespace="com.fc.dao.StudentDao">
+
+    <!--查找所有学生-->
+    <select id="findAll" resultType="com.fc.bean.Student">
+        select * from student
+    </select>
+
+
+
+</mapper>

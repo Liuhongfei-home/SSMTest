@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.dao.EmployeeDao">
+
+    <!--resultMap是一个结果映射-->
+    <!--id随便写，但是要见名知意；type对应映射的实体类的完整的包名.类名-->
+    <resultMap id="employeeMap" type="com.fc.bean.Employee">
+        <!--id标签对应的就是id，column对应数据库中的列名（字段名）。property对应实体类中的成员变量名-->
+        <id column="e_id" property="eId"/>
+        <!--result对应非id字段-->
+        <result column="e_name" property="eName"/>
+        <result column="e_age" property="eAge"/>
+        <result column="e_info" property="eInfo"/>
+    </resultMap>
+    <resultMap id="employeeMper" type="com.fc.bean.Employee">
+        <id column="e_id" property="eId"/>
+    </resultMap>
+
+    <!--通过给数据库的字段起别名，对应实体类中的成员变量，完成orm映射-->
+    <select id="findById" parameterType="int" resultType="com.fc.bean.Employee">
+        select
+            e_id as eId,e_name as eName,e_age as eAge,e_info as eInfo
+        from employee where e_id =#{id}
+    </select>
+
+    <select id="findAll" resultMap="employeeMap">
+        select * from employee
+    </select>
+
+</mapper>

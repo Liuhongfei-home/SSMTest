@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--首先，根标签：mapper，命名空间可以随便写，但是有一定的规范，必须写全限定名-->
+<mapper namespace="com.fc.dao.StudentDao">
+    <!--其实就是SQL语句，必须指定一个id，可以随便写，但是有一定的规范，后面说-->
+
+    <insert id="addStudent">
+        insert into student(name, age, gender, info) values('哈妮克孜', 18, '女', '我也不认识')
+    </insert>
+
+    <select id="findStudentById" parameterType="int" resultType="com.fc.bean.Student">
+        select * from student where id = #{id}
+    </select>
+
+    <!--根据id和姓名查询对应的学生 unique-->
+    <!--通过序号进行绑定，从0开始，格式：arg0 arg1 ...-->
+    <select id="findByIdAndName" resultType="com.fc.bean.Student">
+        select * from student where id = #{arg0} and name = #{arg1}
+    </select>
+
+    <!--根据id和年龄查询对应的学生 unique-->
+    <!--通过序号进行绑定，从1开始，格式：param1 param2   ...-->
+    <select id="findByIdAndAge" resultType="com.fc.bean.Student">
+        select * from student where id = #{param1} and age = #{param2}
+    </select>
+
+    <!--使用@Param进行参数绑定-->
+    <select id="findByNameAndAge" resultType="com.fc.bean.Student">
+        select * from student where id = #{name} and age = #{age}
+    </select>
+
+    <!--使用Map进行参数绑定-->
+    <select id="findByNameAndGender" resultType="com.fc.bean.Student">
+        select * from student where name = #{name} and gender = #{gender}
+    </select>
+    <!--使用对象进行参数绑定-->
+
+    <select id="findByStudent" resultType="com.fc.bean.Student">
+        select * from student where id = #{id} and name = #{name}
+    </select>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--通过Spring创建了一个名为userDao的完整包名，类名为com.fc-->
+    <!--id：对象与名，可以随便起，但是不能重复，见名之意，一般都是类型的首写字母小写-->
+    <!--class：对象类型。要用完整的包名.类型-->
+    <bean id="userDao" class="com.fc.dao.impl.UserDaoOracleImpl"/>
+
+
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!--通过Spring容器创建Student对象-->
+        <bean id="student" name="student" class="com.fc.bean.Student"/>
+
+        <!--通过Spring容器创建一个工厂对象-->
+        <bean id="studentFactory" name="studentFactory" class="com.fc.factory.StudentFactory"/>
+
+        <!--通过工厂的方法获取对象-->
+        <bean id="studentByFactory" factory-bean="studentFactory" factory-method="getStudent"/>
+
+
+        <bean id="studentStaticFactory"  class="com.fc.factory.StudentStaticFactory" factory-method="getStudent"/>
+
+</beans>

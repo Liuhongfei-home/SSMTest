@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.dao.DepartmentDao">
+
+    <resultMap id="DepartmentMap" type="com.fc.bean.Department">
+        <id column="d_id" property="dId"/>
+        <result column="d_name" property="dName"/>
+
+        <!--声明集合中的映射关系-->
+        <!--如果遇到集合就用collection标签
+        property：对应集合的变量名
+        javaType：对应数据类型
+        ofType：对应泛型，就是真实映射的数据类型-->
+        <collection property="employees" javaType="List" ofType="com.fc.bean.Employee">
+            <id column="e_id" property="eId"/>
+            <result column="e_name" property="eName"/>
+            <result column="e_age" property="eAge"/>
+            <result column="e_info" property="eInfo"/>
+        </collection>
+    </resultMap>
+
+    <select id="findById" parameterType="int" resultMap="DepartmentMap">
+        select e.*, d.*
+        from department d
+                 inner join employee e
+                            on e.dept_id = d.d_id
+        where d.d_id = #{id}
+    </select>
+</mapper>

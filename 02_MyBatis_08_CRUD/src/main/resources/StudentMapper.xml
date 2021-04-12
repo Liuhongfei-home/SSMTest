@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--首先，根标签：mapper，命名空间可以随便写，但是有一定的规范，后面说-->
+<mapper namespace="com.fc.dao.StudentDao">
+
+        <!--主键回填：1、自动递增
+        useGeneratedKeys:开启主键回填
+        keyProperty：主键回填映射的变量
+        -->
+    <insert id="getKey"  useGeneratedKeys="true" keyProperty="id">
+          insert into student( name, age, gender, info) values(#{name},#{age},#{gender},#{info})
+    </insert>
+
+
+</mapper>

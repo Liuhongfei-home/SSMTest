@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--resultMap是一个结果映射-->
+<!--id随便写，但是要见名知意；type对应映射的实体类的完整的包名.类名-->
+<!--员工表的映射关系，type对应员工实体类-->
+<mapper namespace="com.fc.dao.DepartmentDao">
+
+        <resultMap id="department" type="com.fc.bean.Department" >
+            <id column="d_id" property="dId"/>
+            <result column="d_name" property="dName"/>
+
+            <collection property="employees" javaType="list" ofType="com.fc.bean.Employee" column="d_id" select="com.fc.dao.EmployeeDao.findById">
+                <id column="e_id" property="eId"/>
+                <result column="e_name" property="eName"/>
+                <result column="e_age" property="eAge"/>
+                <result column="e_info" property="eInfo"/>
+            </collection>
+        </resultMap>
+
+        <select id="findByDepartmentId"  resultMap="department">
+            select * from department where d_id=#{id}
+        </select>
+
+
+
+
+</mapper>

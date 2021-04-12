@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="00_MyBatis_01_Test" />
+        <module name="00_Spirng_01_Test" />
+        <module name="00_SpringMvc_01_Test" />
+        <module name="01_Maven_02_Starter" />
+        <module name="01_Maven_03_Scope" />
+        <module name="01_Maven_04_Web" />
+        <module name="02_MyBatis_01_JDBC" />
+        <module name="02_MyBatis_02_Starter" />
+        <module name="02_MyBatis_03_Mapper" />
+        <module name="02_MyBatis_04_Test" />
+        <module name="02_MyBatis_05_JDBC_Properties" />
+        <module name="02_MyBatis_06_Alias" />
+        <module name="02_MyBatis_07_Bind_Parameter" />
+        <module name="02_MyBatis_08_CRUD" />
+        <module name="02_Mybatis_09_Utils" />
+        <module name="02_MyBatis_10_ORM" />
+        <module name="02_Mybatis_11_Relation" />
+        <module name="02_MyBatis_12_Dynamic_Sql" />
+        <module name="02_Mybatis_13_Cache" />
+        <module name="02_Mybatis_14_PageHelper" />
+        <module name="02_Mybatis_16_Nest_Query" />
+        <module name="02_Mybatis_17_Lazy_Loading" />
+        <module name="02_Mybatis_18_Rever" />
+        <module name="03_Spring_00_Three_Layers" />
+        <module name="03_Spring_01_IOC_Starter" />
+        <module name="03_Spring_02_Ioc" />
+        <module name="03_Spring_03_Create" />
+        <module name="03_Spring_04_Scope" />
+        <module name="03_Spring_05_Life" />
+        <module name="03_Spring_06_LazyLoading" />
+        <module name="03_Spring_07_Dependcy_injection" />
+        <module name="03_Spring_08_Annotation" />
+        <module name="03_Spring_09_Spel" />
+        <module name="03_Spring_10_JdbcTemplate" />
+        <module name="03_Spring_11_Junit" />
+        <module name="03_Spring_12_Proxy" />
+        <module name="03_Spring_13_Starter" />
+        <module name="03_Spring_14_Aop_XML" />
+        <module name="03_Spring_15_Aop_Type" />
+        <module name="03_Spring_16_AOP_Annoction" />
+        <module name="03_Spring_17_Transaction_Programming" />
+        <module name="03_Spring_18_Transaction_XML" />
+        <module name="03_Spring_19_Transaction_Annotation" />
+        <module name="04_SpringMVC_00_Servlet" />
+        <module name="04_SpringMVC_01_Starter" />
+        <module name="04_SpringMvc_02_RequestMapping" />
+        <module name="04_SpringMvc_03_ParamsBinding" />
+        <module name="04_SpringMvc_04_EncodingFilter" />
+        <module name="04_SpringMvc_05_DateFormat" />
+        <module name="04_SpringMvc_06_Static_Resources" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="00_MyBatis_01_Test" target="1.8" />
+      <module name="00_Spirng_01_Test" target="1.8" />
+      <module name="00_SpringMvc_01_Test" target="1.8" />
+      <module name="01_Maven_02_Starter" target="1.8" />
+      <module name="01_Maven_03_Scope" target="1.8" />
+      <module name="01_Maven_04_Web" target="1.8" />
+      <module name="02_MyBatis_01_JDBC" target="1.8" />
+      <module name="02_MyBatis_02_Starter" target="1.8" />
+      <module name="02_MyBatis_03_Mapper" target="1.8" />
+      <module name="02_MyBatis_04_Test" target="1.8" />
+      <module name="02_MyBatis_05_JDBC_Properties" target="1.8" />
+      <module name="02_MyBatis_06_Alias" target="1.8" />
+      <module name="02_MyBatis_07_Bind_Parameter" target="1.8" />
+      <module name="02_MyBatis_08_CRUD" target="1.8" />
+      <module name="02_Mybatis_09_Utils" target="1.8" />
+      <module name="02_MyBatis_10_ORM" target="1.8" />
+      <module name="02_Mybatis_11_Relation" target="1.8" />
+      <module name="02_MyBatis_12_Dynamic_Sql" target="1.8" />
+      <module name="02_Mybatis_13_Cache" target="1.8" />
+      <module name="02_Mybatis_14_PageHelper" target="1.8" />
+      <module name="02_Mybatis_16_Nest_Query" target="1.8" />
+      <module name="02_Mybatis_17_Lazy_Loading" target="1.8" />
+      <module name="02_Mybatis_18_Rever" target="1.8" />
+      <module name="03_Spring_00_Three_Layers" target="1.8" />
+      <module name="03_Spring_01_IOC_Starter" target="1.8" />
+      <module name="03_Spring_02_Ioc" target="1.8" />
+      <module name="03_Spring_03_Create" target="1.8" />
+      <module name="03_Spring_04_Scope" target="1.8" />
+      <module name="03_Spring_05_Life" target="1.8" />
+      <module name="03_Spring_06_LazyLoading" target="1.8" />
+      <module name="03_Spring_07_Dependcy_injection" target="1.8" />
+      <module name="03_Spring_08_Annotation" target="1.8" />
+      <module name="03_Spring_09_Spel" target="1.8" />
+      <module name="03_Spring_10_JdbcTemplate" target="1.8" />
+      <module name="03_Spring_11_Junit" target="1.8" />
+      <module name="03_Spring_12_Proxy" target="1.8" />
+      <module name="03_Spring_13_Starter" target="1.8" />
+      <module name="03_Spring_14_Aop_XML" target="1.8" />
+      <module name="03_Spring_15_Aop_Type" target="1.8" />
+      <module name="03_Spring_16_AOP_Annoction" target="1.8" />
+      <module name="03_Spring_17_Transaction_Programming" target="1.8" />
+      <module name="03_Spring_18_Transaction_XML" target="1.8" />
+      <module name="03_Spring_19_Transaction_Annotation" target="1.8" />
+      <module name="04_SpringMVC_00_Servlet" target="1.8" />
+      <module name="04_SpringMVC_01_Starter" target="1.8" />
+      <module name="04_SpringMVC_02_RequestMapping" target="1.8" />
+      <module name="04_SpringMvc_02_RequestMapping" target="1.8" />
+      <module name="04_SpringMvc_03_ParamsBinding" target="1.8" />
+      <module name="04_SpringMvc_04_EncodingFilter" target="1.8" />
+      <module name="04_SpringMvc_05_DateFormat" target="1.8" />
+      <module name="04_SpringMvc_06_Static_Resources" target="1.8" />
+      <module name="lkjh" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

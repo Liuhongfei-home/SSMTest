@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.dao.StudentDao">
+    <!--sql标签用于声明一段可复用的sql语句-->
+    <!--id可以随便写，但是必须唯一，并且见名知意-->
+    <sql id="studentFieId">
+        id, name, age, gender, brithday, info
+    </sql>
+    <!--
+            select id, name, age, gender, birthday, info
+            from student where id = #{id}
+        -->
+    <!--使用include标签引入指定对应id的sql片段-->
+    <select id="findById" parameterType="Integer" resultType="com.fc.bean.Student">
+        select
+
+        <include refid="studentField"/>
+
+        from student where id = #{id}
+    </select>
+
+    <!--
+        insert into student(name, age, gender, birthday, info) values(#{name}, #{age}, #{gender}, #{birthday}, #{info})
+    -->
+    <!--if标签用来进行逻辑判断，必须的属性叫text，里面写true或者false的条件
+    如果，true执行标签里的内容，否则啥也没了-->
+
+    <!--insert into student ( name. age, gender, info) values('玛卡巴卡', 3, 'X',花园宝宝)-->
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into student (name, age,gender) values (#{name},#{age},#{gender})
+    </insert>
+    <!--
+        select * from student where name like '%张%' or age = #{age}
+    -->
+    <!--where标签，自动添加上where关键字，并且可以去除and 和 or-->
+    <select id="findByKeyword" resultType="com.fc.bean.Student">
+        select
+
+        <include refid="studentField"/>
+
+        from student
+
+        <where>
+            <if test="name !=null">
+                and name like #{name}
+            </if>
+            <if test="age !=null">
+                or age like #{age}
+            </if>
+            <if test="gender !=null">
+                or gender like #{gender}
+            </if>
+            <if test="info !=null">
+                or info like #{info}
+            </if>
+        </where>
+    </select>
+
+    <!--
+       update student set name = #{name}, age = #{age}, gender = #{gender} where id = #{id}
+   -->
+    <!--set标签，可以自动添加上set关键字，还可以去除多余的 ,-->
+    <update id="update">
+        update student
+
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+
+            <if test="age != null">
+                age = #{age},
+            </if>
+
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday},
+            </if>
+            <if test="info != null">
+                info = #{info},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--trim：添加或者移除指定的前缀和后缀
+        prefix：添加指定的前缀
+        prefixOverrides：去除指定的前缀
+        suffix：添加指定的后缀
+        suffixOverrides：去除指定的后缀-->
+    <select id="findByStudent" resultType="com.fc.bean.Student">
+        select
+
+        <include refid="studentField"/>
+
+        from student
+
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+        </trim>
+    </select>
+
+    <update id="updateByTrim">
+        update student
+
+        <trim prefix="set" suffixOverrides="," suffix="where">
+            <if test="name != null">
+                name = #{name},
+            </if>
+
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+
+            <if test="info != null">
+                info = #{info},
+            </if>
+        </trim>
+
+        id = #{id}
+    </update>
+
+    <!--foreach标签用来迭代遍历
+    collection：指定容器的类型（array、list、map）
+    open：起始，一般就是(
+    close：结束，一般就是)
+    separator：分隔符
+    item：当前项
+    index：下标
+    -->
+
+    <select id="findByIds" resultType="com.fc.bean.Student">
+        select
+
+        <include refid="studentField"/>
+
+        from student where id in
+
+        <foreach collection="array" index="i" item="id" open="(" close=")" separator=", ">
+            #{id}
+        </foreach>
+    </select>
+
+
+</mapper>

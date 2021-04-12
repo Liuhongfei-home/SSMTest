@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--跟标签：配置-->
+<configuration>
+    <!--添加properties配置文件路径（外部配置，动态替换）-->
+    <properties resource="jdbc.properties"/>
+    <!--运行环境，注意，default可以随便写，但是必须和其中的一个环境是匹配的-->
+    <environments default="development">
+        <!--运行环境，可以是多个，id可以随便写，但是必须有一个和default是一样的-->
+        <environment id="development">
+            <!--事务管理器，不要动-->
+            <transactionManager type="JDBC"/>
+            <!--数据源，type：数据库连接池，比如c3p0和druid,后天用特鲁伊。现在不要动-->
+            <dataSource type="POOLED">
+                <!--连接数据库的一些参数，记得使用字符实体，不然无法加载配置文件-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--映射文件的路径，必须配，否则找不到-->
+    <mappers>
+        <!--可以配置多个，必须用rescource这个属性-->
+        <!--【注意】如果是多级目录，中间一定要用 /千万不能用-->
+        <mapper resource="Mapper/EmployeeMapper.xml"/>
+        <mapper resource="Mapper/DepartmentMapper.xml"/>
+    </mappers>
+</configuration>

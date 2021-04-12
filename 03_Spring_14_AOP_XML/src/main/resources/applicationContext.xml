@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置业务层接口实现类-->
+    <bean id="userService" class="com.fc.service.impl.UserServiceImpl"/>
+
+    <!--增强类-->
+    <bean id="advice" class="com.fc.advice.UserServiceAdvice"/>
+
+    <!--配置aop -> 这个操作就是织入-->
+    <!--proxy-target-class="true":使用CGLib动态代理-->
+    <!--proxy-target-class="false":使用JDK进行动态代理-->
+    <aop:config proxy-target-class="false">
+        <!--配置切点-->
+        <!--固定格式：execution() -> 里面写方法
+
+        第一个*代表返回值类型，可以是一个任意类型
+        第二个必填的为方法名()，建议写上完整的包名.类名.方法名
+        第三个是参数列表，..代表0参1参或者多参-->
+        <aop:pointcut id="pointcut" expression="execution(* com.fc.service.impl.UserServiceImpl.update(..))"/>
+
+        <!--配置切面-->
+        <aop:aspect ref="advice">
+            <!--配置前置通知-->
+            <aop:before method="happyBirthday" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

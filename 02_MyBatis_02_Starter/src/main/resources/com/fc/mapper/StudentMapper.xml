@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--首先，根标签：mapper，命名空间可以随便写，但是有一定的规范，后面说-->
+<mapper namespace="StudentMapper">
+    <!--其实就是SQL语句，必须指定一个id，可以随便写，但是有一定的规范，后面说-->
+    <insert id="add">
+        insert into student(name, age, gender, info) values('日他龙龙', 20, '男', '可爱好室友')
+    </insert>
+</mapper>
